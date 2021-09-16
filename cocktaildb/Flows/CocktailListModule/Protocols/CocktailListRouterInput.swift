@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-protocol CocktailListRouterInput: AnyObject {
+protocol CocktailListRouterInput: class {
     var view: CocktailListViewControllerInput { get set }
     var interactor: CocktailListInteractorBase { get set }
     var presenter: CocktailListPresenterBase { get set }

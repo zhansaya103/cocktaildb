@@ -23,8 +23,4 @@ final class FilterRouter: FilterRouterInput {
         return view
     }
     
-    func pushToMovieScreen(navigationConroller: UINavigationController) {
-        
-    }
-    
 }

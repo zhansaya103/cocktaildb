@@ -9,10 +9,11 @@ import UIKit
 import RxSwift
 
 class FilterViewController: UIViewController, FilterViewControllerInput {
-    var presenter: FilterPresenterBase?
+    weak var presenter: FilterPresenterBase?
     
     private var tableView: UITableView!
     private var filterButton: UIButton!
+    private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +26,7 @@ class FilterViewController: UIViewController, FilterViewControllerInput {
         
         filterButton = FilterButton(frame: .zero)
         view.addSubview(filterButton)
-        filterButton.isHidden = true
+        enableFilterButton(false)
         setUpConstraints()
         
         filterButton.addTarget(self, action: #selector(applyFilter), for: .touchUpInside)
@@ -36,24 +37,27 @@ class FilterViewController: UIViewController, FilterViewControllerInput {
         presenter?.output.filterStateDidChange
             .subscribe(onNext: { [weak self] value in
                 print(value)
-                self?.filterButton.isHidden = !value
+                self?.enableFilterButton(value)
                 self?.tableView.reloadData()
             })
+            .disposed(by: disposeBag)
         presenter?.input.viewReadyToUse()
         tableView.reloadData()
-        
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        presenter?.input.viewWillDisappear()
-        super.viewWillDisappear(true)
-    }
     // MARK: - private methods
+    
+    private func enableFilterButton(_ value: Bool) {
+        filterButton.isEnabled = value
+        UIView.animate(withDuration: 0.5) {
+            self.filterButton.layer.opacity = value == true ? 1.0 : 0.5
+        }
+        
+    }
     
     @objc private func applyFilter() {
         presenter?.input.filterButtonTapped()
         navigationController?.popViewController(animated: true)
-        
     }
     
     private func setUpConstraints() {
@@ -64,12 +68,12 @@ class FilterViewController: UIViewController, FilterViewControllerInput {
             make.top.equalTo(self.view)
             make.leading.equalTo(self.view)
             make.trailing.equalTo(self.view)
-            make.height.equalTo(tableView.rowHeight * 14)
+            make.bottom.equalTo(filterButton.snp.top).offset(-20)
         }
         
         filterButton.translatesAutoresizingMaskIntoConstraints = false
         filterButton.snp.makeConstraints { make in
-            make.bottom.equalTo(tableView).offset(80)
+            make.bottom.equalToSuperview().offset(-40)
             make.leading.equalToSuperview().offset(20)
             make.trailing.equalToSuperview().offset(-20)
             make.height.equalTo(50)
@@ -83,25 +87,7 @@ class FilterViewController: UIViewController, FilterViewControllerInput {
 
 extension FilterViewController: UITableViewDelegate, UITableViewDataSource {
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let filter = presenter?.output.filterRepository {
-            return filter.categories.count
-        }
-        return 0
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: FilterCell.identifier, for: indexPath)
-        if let filterCell = cell as? FilterCell {
-            if let filter = presenter?.output.filterRepository {
-                filterCell.nameLabel.text = filter.categories[indexPath.row].name
-                if let isSelected = filter.categories[indexPath.row].isSelected {
-                    filterCell.accessoryType = isSelected ? .checkmark : .none
-                }
-            }
-        }
-        return cell
-    }
+// MARK: - UITableViewDelegate methods
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let cell = tableView.cellForRow(at: indexPath) else { return  }
@@ -112,6 +98,31 @@ extension FilterViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         presenter?.input.rowDidDeselect(indexPath.row)
+        
+    }
+
+// MARK: - UITableViewDataSource methods
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if let filter = presenter?.output.filterRepository {
+            return filter.categories.count
+        }
+        return 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        if let cell = tableView.dequeueReusableCell(withIdentifier: FilterCell.identifier, for: indexPath) as? FilterCell {
+            if let filter = presenter?.output.filterRepository {
+                cell.nameLabel.text = filter.categories[indexPath.row].name
+                if let isSelected = filter.categories[indexPath.row].isSelected {
+                    cell.accessoryType = isSelected ? .checkmark : .none
+                }
+            }
+            return cell
+        }
+        
+        return UITableViewCell()
         
     }
     

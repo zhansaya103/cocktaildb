@@ -1,0 +1,10 @@
+/* 
+  Localizable.strings
+  cocktaildb
+
+  Created by Zhansaya Ayazbayeva on 2021-09-15.
+  
+*/
+
+"flows.cocktail_list_module.cocktail_list_presenter.showLoadingIndicator.title" = "Загрузка";
+"flow.cocktail_list_module.view.filter_button.title" = "Применить фильтр";

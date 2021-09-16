@@ -1,5 +1,5 @@
 //
-//  CocktailListInteractorInput.swift
+//  CocktailListInteractorBase.swift
 //  cocktaildb
 //
 //  Created by Zhansaya Ayazbayeva on 2021-09-15.
@@ -23,6 +23,5 @@ protocol CocktailListInteractorInput: AnyObject {
 
 protocol CocktailListInteractorOutput: AnyObject {
     var cocktailRepositories: Observable<CocktailRepository> { get }
-    var selectedCategories: Observable<[Category]> { get }
     
 }

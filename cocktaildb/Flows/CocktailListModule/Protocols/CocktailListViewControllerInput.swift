@@ -5,12 +5,12 @@
 //  Created by Zhansaya Ayazbayeva on 2021-09-15.
 //
 
-import Foundation
+import UIKit
 
-protocol CocktailListViewControllerInput {
+protocol CocktailListViewControllerInput: class {
     var presenter: CocktailListPresenterBase? { get set }
     
     func showLoadingIndicator(title: String, description: String)
     func hideLoadingIndicator()
-    func updateFilterButton()
+    func updateFilterButton(image: UIImage)
 }

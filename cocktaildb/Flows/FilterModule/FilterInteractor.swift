@@ -12,7 +12,6 @@ final class FilterInteractor: FilterInteractorBase, FilterInteractorInput, Filte
     
     var input: FilterInteractorInput { return self}
     var output: FilterInteractorOutput { return self }
-    
     var presenter: FilterPresenterBase?
 
 }

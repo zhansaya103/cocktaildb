@@ -13,7 +13,6 @@ final class CocktailListRouter: CocktailListRouterInput {
     
     @Injected var view: CocktailListViewControllerInput
     @Injected var interactor: CocktailListInteractorBase
-    
     @Injected var presenter: CocktailListPresenterBase
     @Injected var presenterInput: CocktailListPresenterInput
     @Injected var filterRouter: FilterRouterInput
@@ -30,9 +29,10 @@ final class CocktailListRouter: CocktailListRouterInput {
     }
     
     func pushToFilterScreen(navigationConroller: UINavigationController) {
-        let filterModule = filterRouter.createModule() as! UIViewController
         
+        let filterModule = filterRouter.createModule() as! UIViewController
         navigationConroller.pushViewController(filterModule, animated: true)
+        
     }
     
 }

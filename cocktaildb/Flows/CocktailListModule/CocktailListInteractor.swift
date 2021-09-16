@@ -11,40 +11,32 @@ import Resolver
 
 final class CocktailListInteractor: CocktailListInteractorBase, CocktailListInteractorInput, CocktailListInteractorOutput {
     
-    
-    var selectedCategories: Observable<[Category]>
-  
     var intut: CocktailListInteractorInput { return self }
     var output: CocktailListInteractorOutput { return self }
-    
     var presenter: CocktailListPresenterBase?
     
-    // MARK: - private properties
+// MARK: - private properties
+    
     private var disposeBag = DisposeBag()
     private var networkManager: CocktailNetworkManager
     private var presentableFilter: FilterRepository
     private var loadedCocktailRepositories: PublishSubject<CocktailRepository>
     
-    var cocktailRepositories: Observable<CocktailRepository>
+// MARK: - init()
     
     init(networkManager: CocktailNetworkManager, presentableFilter: FilterRepository) {
         self.networkManager = networkManager
         self.presentableFilter = presentableFilter
         
-        //let _disposeBag = DisposeBag()
         let _loadedCocktailRepositories = PublishSubject<CocktailRepository>()
         self.loadedCocktailRepositories = _loadedCocktailRepositories
         cocktailRepositories = loadedCocktailRepositories.asObservable()
         
-        let loadedCategories = BehaviorSubject<[Category]>(value: presentableFilter.categories)
-        selectedCategories = loadedCategories.asObservable()
-        
         let fetchedCategories = networkManager.getCategoryList()
         fetchedCategories
-            .subscribe(onNext: { value in
-                //print(value)
+            .subscribe(onNext: {[weak self] value in
                 presentableFilter.categories = value
-                self.presentableFilter = presentableFilter
+                self?.presentableFilter = presentableFilter
                 let firstCategory = value.first!
                 
                 let fetchedCocktails = networkManager.getCocktails(category: firstCategory.name)
@@ -55,7 +47,7 @@ final class CocktailListInteractor: CocktailListInteractorBase, CocktailListInte
                         self?.loadedCocktailRepositories = _loadedCocktailRepositories
                         self?.cocktailRepositories = (self?.loadedCocktailRepositories.asObservable())!
                     })
-                
+                    .disposed(by: (self?.disposeBag)!)
             })
             .disposed(by: disposeBag)
         self.presentableFilter = presentableFilter
@@ -63,13 +55,13 @@ final class CocktailListInteractor: CocktailListInteractorBase, CocktailListInte
         self.loadedCocktailRepositories = _loadedCocktailRepositories
         cocktailRepositories = loadedCocktailRepositories.asObservable()
     }
-    // MARK: - inputs
+    
+// MARK: - inputs
     
     func fetchCocktails(category: Category) {
         let fetchedResult = networkManager.getCocktails(category: category.name)
         fetchedResult
             .subscribe(onNext: { [weak self] value in
-                print(value)
                 let cocktail = CocktailRepository(category: category, cocktails: value)
                 self?.loadedCocktailRepositories.onNext(cocktail)
             })
@@ -80,13 +72,13 @@ final class CocktailListInteractor: CocktailListInteractorBase, CocktailListInte
         let fetchedResult = networkManager.getCategoryList()
         fetchedResult
             .subscribe(onNext: { [weak self ] value in
-                print(value)
                 self?.presentableFilter.categories = value
             })
             .disposed(by: disposeBag)
     }
     
-    // MARK: - outputs
+// MARK: - outputs
     
+    var cocktailRepositories: Observable<CocktailRepository>
     
 }

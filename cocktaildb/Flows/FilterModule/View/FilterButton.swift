@@ -17,7 +17,7 @@ class FilterButton: UIButton {
         self.tintColor = .white
         self.layer.masksToBounds = true
         self.layer.cornerRadius = 15
-        self.setTitle("Apply Filter", for: .normal)
+        self.setTitle(NSLocalizedString("flow.cocktail_list_module.view.filter_button.title", comment: "") , for: .normal)
         
     }
     

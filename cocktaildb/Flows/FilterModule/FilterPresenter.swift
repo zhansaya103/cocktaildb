@@ -15,8 +15,8 @@ final class FilterPresenter: FilterPresenterBase, FilterPresenterInput, FilterPr
     var output: FilterPresenterOutput { return self }
     
     var view: FilterViewControllerInput?
-    var interactor: FilterInteractorBase?
-    var router: FilterRouterInput?
+    weak var interactor: FilterInteractorBase?
+    weak var router: FilterRouterInput?
     
     @Injected var filterRepository: FilterRepository
     @Injected var filteredCategoryRepository: FilteredCategoryRepository
@@ -26,19 +26,14 @@ final class FilterPresenter: FilterPresenterBase, FilterPresenterInput, FilterPr
     // MARK: - inputs
     
     func viewReadyToUse() {
-        print("Filter view did load")
         saveFilterState()
     }
-    func viewWillDisappear() {
-        print("will disappear")
-        let newCategories = filterRepository.categories
-        filterRepository.categories = newCategories
-        saveFilterState()
-        checkFilterState()
-    }
+    
     func filterButtonTapped() {
         selectedCategories = filterRepository.categories.filter({ $0.isSelected == true })
         filteredCategoryRepository.filter(c: selectedCategories)
+        saveFilterState()
+        checkFilterState()
     }
     
     func rowDidSelect(_ row: Int) {
@@ -48,7 +43,6 @@ final class FilterPresenter: FilterPresenterBase, FilterPresenterInput, FilterPr
             filterRepository.categories[row].isSelected = true
         }
         
-        print(filterRepository.categories[row])
         checkFilterState()
     }
     
@@ -64,7 +58,6 @@ final class FilterPresenter: FilterPresenterBase, FilterPresenterInput, FilterPr
     // MARK: - private methods
     
     private func saveFilterState() {
-        print("save filter state")
         selectedCategories = filterRepository.categories.filter({ $0.isSelected == true })
     }
     

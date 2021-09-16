@@ -193,60 +193,6 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.string` struct is generated, and contains static references to 2 localization tables.
-  struct string {
-    /// This `R.string.launchScreen` struct is generated, and contains static references to 0 localization keys.
-    struct launchScreen {
-      fileprivate init() {}
-    }
-
-    /// This `R.string.localizable` struct is generated, and contains static references to 2 localization keys.
-    struct localizable {
-      /// en translation: Apply Filter
-      ///
-      /// Locales: en, ru
-      static let flowCocktail_list_moduleViewFilter_buttonTitle = Rswift.StringResource(key: "flow.cocktail_list_module.view.filter_button.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ru"], comment: nil)
-      /// en translation: Loading
-      ///
-      /// Locales: en, ru
-      static let flowsCocktail_list_moduleCocktail_list_presenterShowLoadingIndicatorTitle = Rswift.StringResource(key: "flows.cocktail_list_module.cocktail_list_presenter.showLoadingIndicator.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ru"], comment: nil)
-
-      /// en translation: Apply Filter
-      ///
-      /// Locales: en, ru
-      static func flowCocktail_list_moduleViewFilter_buttonTitle(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("flow.cocktail_list_module.view.filter_button.title", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
-          return "flow.cocktail_list_module.view.filter_button.title"
-        }
-
-        return NSLocalizedString("flow.cocktail_list_module.view.filter_button.title", bundle: bundle, comment: "")
-      }
-
-      /// en translation: Loading
-      ///
-      /// Locales: en, ru
-      static func flowsCocktail_list_moduleCocktail_list_presenterShowLoadingIndicatorTitle(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("flows.cocktail_list_module.cocktail_list_presenter.showLoadingIndicator.title", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
-          return "flows.cocktail_list_module.cocktail_list_presenter.showLoadingIndicator.title"
-        }
-
-        return NSLocalizedString("flows.cocktail_list_module.cocktail_list_presenter.showLoadingIndicator.title", bundle: bundle, comment: "")
-      }
-
-      fileprivate init() {}
-    }
-
-    fileprivate init() {}
-  }
-
   fileprivate struct intern: Rswift.Validatable {
     fileprivate static func validate() throws {
       try _R.validate()

@@ -20,8 +20,8 @@
 		58D7DCCE26F1CCA500A20444 /* CocktailNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D7DCCD26F1CCA500A20444 /* CocktailNetworkService.swift */; };
 		58D7DCD126F1CD7800A20444 /* CocktailNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D7DCD026F1CD7800A20444 /* CocktailNetworkManager.swift */; };
 		58D7DCD626F1CF8F00A20444 /* CocktailListRouterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D7DCD526F1CF8F00A20444 /* CocktailListRouterInput.swift */; };
-		58D7DCD826F1D22B00A20444 /* CocktailListInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D7DCD726F1D22B00A20444 /* CocktailListInteractorInput.swift */; };
-		58D7DCDA26F1D2EE00A20444 /* CocktailListPresenterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D7DCD926F1D2EE00A20444 /* CocktailListPresenterInput.swift */; };
+		58D7DCD826F1D22B00A20444 /* CocktailListInteractorBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D7DCD726F1D22B00A20444 /* CocktailListInteractorBase.swift */; };
+		58D7DCDA26F1D2EE00A20444 /* CocktailListPresenterBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D7DCD926F1D2EE00A20444 /* CocktailListPresenterBase.swift */; };
 		58D7DCDC26F1D4D800A20444 /* CocktailListViewControllerInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D7DCDB26F1D4D800A20444 /* CocktailListViewControllerInput.swift */; };
 		58D7DCDE26F1D65200A20444 /* ResolverExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D7DCDD26F1D65200A20444 /* ResolverExtension.swift */; };
 		58D7DCE026F1D7BF00A20444 /* CocktailListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D7DCDF26F1D7BF00A20444 /* CocktailListInteractor.swift */; };
@@ -36,6 +36,11 @@
 		58D7DCF626F2C0A900A20444 /* FilterRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D7DCF526F2C0A900A20444 /* FilterRouter.swift */; };
 		58D7DCF826F2C34300A20444 /* FilterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D7DCF726F2C34300A20444 /* FilterPresenter.swift */; };
 		58D7DCFA26F2C86100A20444 /* FilterInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D7DCF926F2C86100A20444 /* FilterInteractor.swift */; };
+		58D7DCFC26F3043B00A20444 /* FilterPresenterBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D7DCFB26F3043B00A20444 /* FilterPresenterBase.swift */; };
+		58D7DCFE26F3046B00A20444 /* FilterInteractorBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D7DCFD26F3046B00A20444 /* FilterInteractorBase.swift */; };
+		58D7DD0026F3048B00A20444 /* FilterViewControllerInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D7DCFF26F3048B00A20444 /* FilterViewControllerInput.swift */; };
+		58D7DD0226F3082600A20444 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D7DD0126F3082600A20444 /* R.generated.swift */; };
+		58D7DD0626F30B1600A20444 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 58D7DD0826F30B1600A20444 /* Localizable.strings */; };
 		6E8AF2CE4B6B0806FB150506 /* Pods_cocktaildbTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0F53AF7EA5234820E7144D2 /* Pods_cocktaildbTests.framework */; };
 		737E3BB32564453093558AAA /* Pods_cocktaildb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 303150A11D371BAE692BF8FD /* Pods_cocktaildb.framework */; };
 		92A3A8A48EA6DAD351BB42D4 /* Pods_cocktaildb_cocktaildbUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EBA67250CC1690AA4C54A9D /* Pods_cocktaildb_cocktaildbUITests.framework */; };
@@ -83,8 +88,8 @@
 		58D7DCCD26F1CCA500A20444 /* CocktailNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailNetworkService.swift; sourceTree = "<group>"; };
 		58D7DCD026F1CD7800A20444 /* CocktailNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailNetworkManager.swift; sourceTree = "<group>"; };
 		58D7DCD526F1CF8F00A20444 /* CocktailListRouterInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailListRouterInput.swift; sourceTree = "<group>"; };
-		58D7DCD726F1D22B00A20444 /* CocktailListInteractorInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailListInteractorInput.swift; sourceTree = "<group>"; };
-		58D7DCD926F1D2EE00A20444 /* CocktailListPresenterInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailListPresenterInput.swift; sourceTree = "<group>"; };
+		58D7DCD726F1D22B00A20444 /* CocktailListInteractorBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailListInteractorBase.swift; sourceTree = "<group>"; };
+		58D7DCD926F1D2EE00A20444 /* CocktailListPresenterBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailListPresenterBase.swift; sourceTree = "<group>"; };
 		58D7DCDB26F1D4D800A20444 /* CocktailListViewControllerInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailListViewControllerInput.swift; sourceTree = "<group>"; };
 		58D7DCDD26F1D65200A20444 /* ResolverExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResolverExtension.swift; sourceTree = "<group>"; };
 		58D7DCDF26F1D7BF00A20444 /* CocktailListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailListInteractor.swift; sourceTree = "<group>"; };
@@ -99,6 +104,13 @@
 		58D7DCF526F2C0A900A20444 /* FilterRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterRouter.swift; sourceTree = "<group>"; };
 		58D7DCF726F2C34300A20444 /* FilterPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterPresenter.swift; sourceTree = "<group>"; };
 		58D7DCF926F2C86100A20444 /* FilterInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterInteractor.swift; sourceTree = "<group>"; };
+		58D7DCFB26F3043B00A20444 /* FilterPresenterBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterPresenterBase.swift; sourceTree = "<group>"; };
+		58D7DCFD26F3046B00A20444 /* FilterInteractorBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterInteractorBase.swift; sourceTree = "<group>"; };
+		58D7DCFF26F3048B00A20444 /* FilterViewControllerInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewControllerInput.swift; sourceTree = "<group>"; };
+		58D7DD0126F3082600A20444 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
+		58D7DD0726F30B1600A20444 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		58D7DD0926F30B6300A20444 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		58D7DD0A26F30B6300A20444 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BF1861FE73E76BE43364D283 /* Pods-cocktaildb.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cocktaildb.release.xcconfig"; path = "Target Support Files/Pods-cocktaildb/Pods-cocktaildb.release.xcconfig"; sourceTree = "<group>"; };
 		BF329FCAF6906168A730B68E /* Pods-cocktaildb-cocktaildbUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cocktaildb-cocktaildbUITests.release.xcconfig"; path = "Target Support Files/Pods-cocktaildb-cocktaildbUITests/Pods-cocktaildb-cocktaildbUITests.release.xcconfig"; sourceTree = "<group>"; };
 		D0B3A1305FB48E3EF18673FD /* Pods-cocktaildb-cocktaildbUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cocktaildb-cocktaildbUITests.debug.xcconfig"; path = "Target Support Files/Pods-cocktaildb-cocktaildbUITests/Pods-cocktaildb-cocktaildbUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -146,6 +158,15 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		5887E30726F313E0009AA225 /* ResourceFiles */ = {
+			isa = PBXGroup;
+			children = (
+				58D7DC9C26F1C6D500A20444 /* Assets.xcassets */,
+				58D7DD0826F30B1600A20444 /* Localizable.strings */,
+			);
+			path = ResourceFiles;
+			sourceTree = "<group>";
+		};
 		58D7DC8726F1C6D400A20444 = {
 			isa = PBXGroup;
 			children = (
@@ -171,13 +192,14 @@
 		58D7DC9226F1C6D400A20444 /* cocktaildb */ = {
 			isa = PBXGroup;
 			children = (
+				5887E30726F313E0009AA225 /* ResourceFiles */,
+				58D7DD0326F30A4400A20444 /* Frameworks */,
 				58D7DCC326F1C81200A20444 /* Extensions */,
 				58D7DCC626F1C83200A20444 /* Services */,
 				58D7DCC426F1C81B00A20444 /* Model */,
 				58D7DCC526F1C82400A20444 /* Flows */,
 				58D7DC9326F1C6D400A20444 /* AppDelegate.swift */,
 				58D7DC9526F1C6D400A20444 /* SceneDelegate.swift */,
-				58D7DC9C26F1C6D500A20444 /* Assets.xcassets */,
 				58D7DC9E26F1C6D500A20444 /* LaunchScreen.storyboard */,
 				58D7DCA126F1C6D500A20444 /* Info.plist */,
 			);
@@ -265,9 +287,9 @@
 				58D7DCF426F2B64500A20444 /* Protocols */,
 				58D7DCEF26F2B60A00A20444 /* View */,
 				58D7DCED26F2B5CF00A20444 /* FilterViewController.swift */,
-				58D7DCF526F2C0A900A20444 /* FilterRouter.swift */,
-				58D7DCF726F2C34300A20444 /* FilterPresenter.swift */,
 				58D7DCF926F2C86100A20444 /* FilterInteractor.swift */,
+				58D7DCF726F2C34300A20444 /* FilterPresenter.swift */,
+				58D7DCF526F2C0A900A20444 /* FilterRouter.swift */,
 			);
 			path = FilterModule;
 			sourceTree = "<group>";
@@ -276,8 +298,8 @@
 			isa = PBXGroup;
 			children = (
 				58D7DCDB26F1D4D800A20444 /* CocktailListViewControllerInput.swift */,
-				58D7DCD726F1D22B00A20444 /* CocktailListInteractorInput.swift */,
-				58D7DCD926F1D2EE00A20444 /* CocktailListPresenterInput.swift */,
+				58D7DCD726F1D22B00A20444 /* CocktailListInteractorBase.swift */,
+				58D7DCD926F1D2EE00A20444 /* CocktailListPresenterBase.swift */,
 				58D7DCD526F1CF8F00A20444 /* CocktailListRouterInput.swift */,
 			);
 			path = Protocols;
@@ -304,9 +326,20 @@
 		58D7DCF426F2B64500A20444 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				58D7DCFF26F3048B00A20444 /* FilterViewControllerInput.swift */,
+				58D7DCFD26F3046B00A20444 /* FilterInteractorBase.swift */,
+				58D7DCFB26F3043B00A20444 /* FilterPresenterBase.swift */,
 				58D7DCEB26F2A73C00A20444 /* FilterRouterInput.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		58D7DD0326F30A4400A20444 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				58D7DD0126F3082600A20444 /* R.generated.swift */,
+			);
+			path = Frameworks;
 			sourceTree = "<group>";
 		};
 		665E0A402624715F467C99C7 /* Frameworks */ = {
@@ -410,6 +443,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = 58D7DC8726F1C6D400A20444;
 			productRefGroup = 58D7DC9126F1C6D400A20444 /* Products */;
@@ -429,6 +463,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				58D7DCA026F1C6D500A20444 /* LaunchScreen.storyboard in Resources */,
+				58D7DD0626F30B1600A20444 /* Localizable.strings in Resources */,
 				58D7DC9D26F1C6D500A20444 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -576,17 +611,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				58D7DCFE26F3046B00A20444 /* FilterInteractorBase.swift in Sources */,
 				58D7DCE826F2807200A20444 /* CocktailListCell.swift in Sources */,
 				58D7DCDE26F1D65200A20444 /* ResolverExtension.swift in Sources */,
 				58D7DCC826F1CB9200A20444 /* UIViewControllerExtension.swift in Sources */,
 				58D7DCF626F2C0A900A20444 /* FilterRouter.swift in Sources */,
 				58D7DCE326F25EAB00A20444 /* CocktailListPresenter.swift in Sources */,
 				58D7DCCC26F1CC5100A20444 /* Filter.swift in Sources */,
+				58D7DD0026F3048B00A20444 /* FilterViewControllerInput.swift in Sources */,
 				58D7DCF826F2C34300A20444 /* FilterPresenter.swift in Sources */,
 				58D7DC9826F1C6D400A20444 /* CocktailListViewController.swift in Sources */,
-				58D7DCDA26F1D2EE00A20444 /* CocktailListPresenterInput.swift in Sources */,
+				58D7DCDA26F1D2EE00A20444 /* CocktailListPresenterBase.swift in Sources */,
+				58D7DD0226F3082600A20444 /* R.generated.swift in Sources */,
+				58D7DCFC26F3043B00A20444 /* FilterPresenterBase.swift in Sources */,
 				58D7DCF126F2B61100A20444 /* FilterCell.swift in Sources */,
-				58D7DCD826F1D22B00A20444 /* CocktailListInteractorInput.swift in Sources */,
+				58D7DCD826F1D22B00A20444 /* CocktailListInteractorBase.swift in Sources */,
 				58D7DCDC26F1D4D800A20444 /* CocktailListViewControllerInput.swift in Sources */,
 				58D7DC9426F1C6D400A20444 /* AppDelegate.swift in Sources */,
 				58D7DCE026F1D7BF00A20444 /* CocktailListInteractor.swift in Sources */,
@@ -640,8 +679,18 @@
 			isa = PBXVariantGroup;
 			children = (
 				58D7DC9F26F1C6D500A20444 /* Base */,
+				58D7DD0926F30B6300A20444 /* ru */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		58D7DD0826F30B1600A20444 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				58D7DD0726F30B1600A20444 /* en */,
+				58D7DD0A26F30B6300A20444 /* ru */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -651,6 +700,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -712,6 +762,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

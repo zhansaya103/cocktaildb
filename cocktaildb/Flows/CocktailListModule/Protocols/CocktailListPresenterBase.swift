@@ -1,5 +1,5 @@
 //
-//  CocktailListPresenterInput.swift
+//  CocktailListPresenterBase.swift
 //  cocktaildb
 //
 //  Created by Zhansaya Ayazbayeva on 2021-09-15.
@@ -8,7 +8,7 @@
 import UIKit
 import RxSwift
 
-protocol CocktailListPresenterBase {
+protocol CocktailListPresenterBase: class {
     var input: CocktailListPresenterInput { get }
     var output: CocktailListPresenterOutput { get }
 }
@@ -24,13 +24,6 @@ protocol CocktailListPresenterInput: AnyObject {
     func scrollDidReachNextSection(_ nextSectionIndex: Int)
     func pushFilterViewControllerTrigger(navigationController: UINavigationController)
     func updateFilterButtonImageTrigger()
-    
-    
-//    func saveFilterState()
-//    func filterStateHasChanged() -> Bool
-//    func updatePresentableData()
-//    func getPresentableData(for categoryIndex: Int) -> Void
-    func showFilterViewController(navigationController: UINavigationController)
 }
 
 protocol CocktailListPresenterOutput: AnyObject {

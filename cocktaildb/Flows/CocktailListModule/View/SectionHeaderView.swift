@@ -14,7 +14,6 @@ class SectionHeaderView: UIView {
         let label = UILabel()
         label.textColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
         label.textAlignment = .left
-        label.font = UIFont(name: "Helvetica", size: 14)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()

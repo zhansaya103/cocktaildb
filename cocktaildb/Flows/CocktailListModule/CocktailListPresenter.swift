@@ -8,19 +8,20 @@
 import UIKit
 import RxSwift
 import Resolver
+import Rswift
 
 final class CocktailListPresenter: CocktailListPresenterBase, CocktailListPresenterOutput, CocktailListPresenterInput {
     var input: CocktailListPresenterInput { return self }
     var output: CocktailListPresenterOutput { return self }
     
-    // MARK: - private properties
+// MARK: - private properties
     
     private let disposeBag = DisposeBag()
     private var cocktailRepositoriesPrivate: [CocktailRepository] = []
     private var filteredCategories: [Category] = []
     @Injected var filteredCategoryRepository: FilteredCategoryRepository
     
-    // MARK: - init()
+// MARK: - init()
     
     init(interactor: CocktailListInteractorBase, presentableFilter: FilterRepository) {
         
@@ -41,22 +42,25 @@ final class CocktailListPresenter: CocktailListPresenterBase, CocktailListPresen
         filteredCategoryRepository.filteredCategories
             .subscribe(onNext: { [weak self] value in
                 self?.cocktailRepositoriesPrivate.removeAll()
-                self?.filteredCategories = value
-                interactor.intut.fetchCocktails(category: value.first!)
-                print("test: \(value)")
+                self?.filteredCategories = value.isEmpty ? presentableFilter.categories : value
+                interactor.intut.fetchCocktails(category: value.isEmpty ? presentableFilter.categories.first! : value.first!)
+                
+                self?.view?.updateFilterButton(image: value.isEmpty ? R.image.filterClear()! : R.image.filterSelected()!)
+                
             })
             .disposed(by: disposeBag)
-        
+    
     }
     
-    // MARK: - inputs
+// MARK: - inputs
+    
     lazy var view: CocktailListViewControllerInput? = nil
     var interactor: CocktailListInteractorBase?
-    var router: CocktailListRouterInput?
+    weak var router: CocktailListRouterInput?
     var presentableFilter: FilterRepository?
     
     func viewReadyToUse() {
-        view?.showLoadingIndicator(title: "Loading", description: "")
+        view?.showLoadingIndicator(title: NSLocalizedString("flows.cocktail_list_module.cocktail_list_presenter.showLoadingIndicator.title", comment: ""), description: "")
     }
     
     func hideLoaderTrigger() {
@@ -78,11 +82,7 @@ final class CocktailListPresenter: CocktailListPresenterBase, CocktailListPresen
         
     }
     
-    func showFilterViewController(navigationController: UINavigationController) {
-        
-    }
-    
-    // MARK: - outputs
+// MARK: - outputs
     
     let cocktailRepositories = BehaviorSubject<[CocktailRepository]>(value: [])
     

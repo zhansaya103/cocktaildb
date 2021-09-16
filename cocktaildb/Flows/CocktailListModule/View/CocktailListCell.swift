@@ -15,6 +15,8 @@ class CocktailListCell: UITableViewCell {
     var cardView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.isUserInteractionEnabled = true
+        
         return imageView
     }()
     
@@ -42,6 +44,22 @@ class CocktailListCell: UITableViewCell {
             make.height.equalTo(cardView)
             make.centerY.equalTo(cardView)
         }
+        
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
+        cardView.addGestureRecognizer(tapGestureRecognizer)
+    }
+    
+    @objc private func imageTapped(tapGestureRecognizer: UITapGestureRecognizer)
+    {
+        let tappedImage = tapGestureRecognizer.view as! UIImageView
+        UIView.animate(withDuration: 0.5, delay: 0.1, options: [.autoreverse],
+                       animations: {
+                        tappedImage.layer.opacity = 0.8
+                       },
+                       completion: { _ in
+                        tappedImage.layer.opacity = 1
+                       }
+        )
     }
     
     required init?(coder: NSCoder) {

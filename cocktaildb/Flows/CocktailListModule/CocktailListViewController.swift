@@ -9,10 +9,11 @@ import UIKit
 import RxSwift
 import MBProgressHUD
 import SDWebImage
+import Rswift
 
 class CocktailListViewController: UIViewController, CocktailListViewControllerInput {
     
-    var presenter: CocktailListPresenterBase?
+    weak var presenter: CocktailListPresenterBase?
     private let disposeBag = DisposeBag()
     private var tableView: UITableView!
     
@@ -35,13 +36,13 @@ class CocktailListViewController: UIViewController, CocktailListViewControllerIn
             .disposed(by: disposeBag)
         
         setUpConstraints()
-        setRightBarButtonItem()
+        setRightBarButtonItem(image: R.image.filterClear()!)
         
         presenter?.input.viewReadyToUse()
+        
     }
     
-    
-    // MARK: - inputs
+// MARK: - inputs
     func showLoadingIndicator(title: String, description: String) {
         showIndicator(withTitle: title, and: description)
     }
@@ -50,17 +51,17 @@ class CocktailListViewController: UIViewController, CocktailListViewControllerIn
         hideIndicator()
     }
     
-    func updateFilterButton() {
-        
+    func updateFilterButton(image: UIImage) {
+        setRightBarButtonItem(image: image)
     }
 }
 
 // MARK: - private methods
 
 extension CocktailListViewController {
-    private func setRightBarButtonItem() {
-        if #available(iOS 13.0, *) {
-            let filterButton = UIBarButtonItem(image: UIImage(named: "filter-clear"), style: .plain, target: self, action: #selector(showFilter))
+    private func setRightBarButtonItem(image: UIImage) {
+        if #available(iOS 12.0, *) {
+            let filterButton = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(showFilter))
             navigationItem.rightBarButtonItem = filterButton
         } else {
             // Fallback on earlier versions
@@ -83,40 +84,11 @@ extension CocktailListViewController {
     }
 }
 
+// MARK: - UITableViewDelegate, UITableViewDataSource
+
 extension CocktailListViewController: UITableViewDelegate, UITableViewDataSource {
     
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return try! presenter!.output.cocktailRepositories.value().count
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return try! presenter!.output.cocktailRepositories.value()[section].cocktails.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CocktailListCell.identifier, for: indexPath)
-        if let cocktailCell = cell as? CocktailListCell {
-            let cocktail = try! presenter!.output.cocktailRepositories.value()[indexPath.section].cocktails[indexPath.row]
-            cocktailCell.nameLabel.text = cocktail.name
-            let url = URL(string: cocktail.image)
-            let placeHolter = UIImage(named: "cocktail-gradient")
-            cocktailCell.cardView.sd_setImage(with: url, placeholderImage:placeHolter)
-        }
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        let cocktails = try! presenter!.output.cocktailRepositories.value()[indexPath.section].cocktails
-        if cocktails.count > 0 && indexPath.row + 1 == cocktails.count {
-                print("reached the bottom")
-            presenter!.input.scrollDidReachNextSection(indexPath.section + 1)
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return try! presenter!.output.cocktailRepositories.value()[section].category.name
-    }
-    
+// MARK: - UITableViewDelegate methods
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
@@ -128,6 +100,44 @@ extension CocktailListViewController: UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 55
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        let cocktails = try! presenter!.output.cocktailRepositories.value()[indexPath.section].cocktails
+        if cocktails.count > 0 && indexPath.row + 1 == cocktails.count {
+            presenter!.input.scrollDidReachNextSection(indexPath.section + 1)
+        }
+        
+    }
+    
+// MARK: - UITableViewDataSource methods
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return try! presenter!.output.cocktailRepositories.value().count
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return try! presenter!.output.cocktailRepositories.value()[section].cocktails.count
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return try! presenter!.output.cocktailRepositories.value()[section].category.name
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        if let cell = tableView.dequeueReusableCell(withIdentifier: CocktailListCell.identifier, for: indexPath) as? CocktailListCell {
+            let cocktail = try! presenter!.output.cocktailRepositories.value()[indexPath.section].cocktails[indexPath.row]
+            cell.nameLabel.text = cocktail.name
+            let url = URL(string: cocktail.image)
+            let placeHolter = R.image.cocktailGradient()
+            cell.cardView.sd_setImage(with: url, placeholderImage:placeHolter)
+            return cell
+        }
+        
+        return UITableViewCell()
+        
     }
     
 }
