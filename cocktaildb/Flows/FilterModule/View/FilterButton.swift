@@ -7,17 +7,18 @@
 
 import UIKit
 import SnapKit
+import Rswift
 
 class FilterButton: UIButton {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         self.translatesAutoresizingMaskIntoConstraints = false
-        self.backgroundColor = #colorLiteral(red: 0, green: 0.5898008943, blue: 1, alpha: 1)
-        self.tintColor = .white
+        self.backgroundColor = R.color.filterButtonBackground()
+        self.tintColor = R.color.filterButtonText()
         self.layer.masksToBounds = true
         self.layer.cornerRadius = 15
-        self.setTitle(NSLocalizedString("flow.cocktail_list_module.view.filter_button.title", comment: "") , for: .normal)
+        self.setTitle(R.string.localizable.flowCocktail_list_moduleViewFilter_buttonTitle(preferredLanguages: []) , for: .normal)
         
     }
     

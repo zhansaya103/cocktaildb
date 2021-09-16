@@ -7,12 +7,14 @@
 
 import UIKit
 import SnapKit
+import Rswift
 
 class SectionHeaderView: UIView {
     
     var sectionLabel: UILabel = {
         let label = UILabel()
-        label.textColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+        label.textColor = R.color.sectionText()
+        label.font =  UIFont(name: "Arial", size: 14)
         label.textAlignment = .left
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -22,7 +24,7 @@ class SectionHeaderView: UIView {
         super.init(frame: frame)
         
         self.addSubview(sectionLabel)
-        self.backgroundColor = .white
+        self.backgroundColor = R.color.cellBackground()
         
         sectionLabel.snp.makeConstraints { make in
             make.leading.equalTo(self).offset(20)

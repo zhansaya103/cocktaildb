@@ -161,6 +161,7 @@
 		5887E30726F313E0009AA225 /* ResourceFiles */ = {
 			isa = PBXGroup;
 			children = (
+				58D7DD0126F3082600A20444 /* R.generated.swift */,
 				58D7DC9C26F1C6D500A20444 /* Assets.xcassets */,
 				58D7DD0826F30B1600A20444 /* Localizable.strings */,
 			);
@@ -193,7 +194,6 @@
 			isa = PBXGroup;
 			children = (
 				5887E30726F313E0009AA225 /* ResourceFiles */,
-				58D7DD0326F30A4400A20444 /* Frameworks */,
 				58D7DCC326F1C81200A20444 /* Extensions */,
 				58D7DCC626F1C83200A20444 /* Services */,
 				58D7DCC426F1C81B00A20444 /* Model */,
@@ -332,14 +332,6 @@
 				58D7DCEB26F2A73C00A20444 /* FilterRouterInput.swift */,
 			);
 			path = Protocols;
-			sourceTree = "<group>";
-		};
-		58D7DD0326F30A4400A20444 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				58D7DD0126F3082600A20444 /* R.generated.swift */,
-			);
-			path = Frameworks;
 			sourceTree = "<group>";
 		};
 		665E0A402624715F467C99C7 /* Frameworks */ = {
@@ -515,11 +507,11 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				$SRCROOT/cocktaildb/R.generated.swift,
+				$SRCROOT/cocktaildb/ResourceFiles/R.generated.swift,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/cocktaildb/R.generated.swift\"\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/cocktaildb/ResourceFiles/R.generated.swift\"\n";
 		};
 		5DD28DCC73296C59CB4A245F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

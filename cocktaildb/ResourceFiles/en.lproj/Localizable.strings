@@ -6,5 +6,5 @@
   
 */
 
-"flows.cocktail_list_module.cocktail_list_presenter.showLoadingIndicator.title" = "Loading";
+"cocktail_list_presenter.showLoadingIndicator.title" = "Loading";
 "flow.cocktail_list_module.view.filter_button.title" = "Apply Filter";

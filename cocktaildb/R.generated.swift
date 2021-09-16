@@ -105,10 +105,20 @@ struct R: Rswift.Validatable {
   }
   #endif
 
-  /// This `R.color` struct is generated, and contains static references to 1 colors.
+  /// This `R.color` struct is generated, and contains static references to 6 colors.
   struct color {
     /// Color `AccentColor`.
     static let accentColor = Rswift.ColorResource(bundle: R.hostingBundle, name: "AccentColor")
+    /// Color `cell-background`.
+    static let cellBackground = Rswift.ColorResource(bundle: R.hostingBundle, name: "cell-background")
+    /// Color `cell-text`.
+    static let cellText = Rswift.ColorResource(bundle: R.hostingBundle, name: "cell-text")
+    /// Color `filterButton-background`.
+    static let filterButtonBackground = Rswift.ColorResource(bundle: R.hostingBundle, name: "filterButton-background")
+    /// Color `filterButton-text`.
+    static let filterButtonText = Rswift.ColorResource(bundle: R.hostingBundle, name: "filterButton-text")
+    /// Color `section-text`.
+    static let sectionText = Rswift.ColorResource(bundle: R.hostingBundle, name: "section-text")
 
     #if os(iOS) || os(tvOS)
     /// `UIColor(named: "AccentColor", bundle: ..., traitCollection: ...)`
@@ -119,11 +129,96 @@ struct R: Rswift.Validatable {
     }
     #endif
 
+    #if os(iOS) || os(tvOS)
+    /// `UIColor(named: "cell-background", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func cellBackground(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.cellBackground, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIColor(named: "cell-text", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func cellText(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.cellText, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIColor(named: "filterButton-background", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func filterButtonBackground(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.filterButtonBackground, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIColor(named: "filterButton-text", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func filterButtonText(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.filterButtonText, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIColor(named: "section-text", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func sectionText(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.sectionText, compatibleWith: traitCollection)
+    }
+    #endif
+
     #if os(watchOS)
     /// `UIColor(named: "AccentColor", bundle: ..., traitCollection: ...)`
     @available(watchOSApplicationExtension 4.0, *)
     static func accentColor(_: Void = ()) -> UIKit.UIColor? {
       return UIKit.UIColor(named: R.color.accentColor.name)
+    }
+    #endif
+
+    #if os(watchOS)
+    /// `UIColor(named: "cell-background", bundle: ..., traitCollection: ...)`
+    @available(watchOSApplicationExtension 4.0, *)
+    static func cellBackground(_: Void = ()) -> UIKit.UIColor? {
+      return UIKit.UIColor(named: R.color.cellBackground.name)
+    }
+    #endif
+
+    #if os(watchOS)
+    /// `UIColor(named: "cell-text", bundle: ..., traitCollection: ...)`
+    @available(watchOSApplicationExtension 4.0, *)
+    static func cellText(_: Void = ()) -> UIKit.UIColor? {
+      return UIKit.UIColor(named: R.color.cellText.name)
+    }
+    #endif
+
+    #if os(watchOS)
+    /// `UIColor(named: "filterButton-background", bundle: ..., traitCollection: ...)`
+    @available(watchOSApplicationExtension 4.0, *)
+    static func filterButtonBackground(_: Void = ()) -> UIKit.UIColor? {
+      return UIKit.UIColor(named: R.color.filterButtonBackground.name)
+    }
+    #endif
+
+    #if os(watchOS)
+    /// `UIColor(named: "filterButton-text", bundle: ..., traitCollection: ...)`
+    @available(watchOSApplicationExtension 4.0, *)
+    static func filterButtonText(_: Void = ()) -> UIKit.UIColor? {
+      return UIKit.UIColor(named: R.color.filterButtonText.name)
+    }
+    #endif
+
+    #if os(watchOS)
+    /// `UIColor(named: "section-text", bundle: ..., traitCollection: ...)`
+    @available(watchOSApplicationExtension 4.0, *)
+    static func sectionText(_: Void = ()) -> UIKit.UIColor? {
+      return UIKit.UIColor(named: R.color.sectionText.name)
     }
     #endif
 
@@ -209,7 +304,7 @@ struct R: Rswift.Validatable {
       /// en translation: Loading
       ///
       /// Locales: en, ru
-      static let flowsCocktail_list_moduleCocktail_list_presenterShowLoadingIndicatorTitle = Rswift.StringResource(key: "flows.cocktail_list_module.cocktail_list_presenter.showLoadingIndicator.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ru"], comment: nil)
+      static let cocktail_list_presenterShowLoadingIndicatorTitle = Rswift.StringResource(key: "cocktail_list_presenter.showLoadingIndicator.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ru"], comment: nil)
 
       /// en translation: Apply Filter
       ///
@@ -229,16 +324,16 @@ struct R: Rswift.Validatable {
       /// en translation: Loading
       ///
       /// Locales: en, ru
-      static func flowsCocktail_list_moduleCocktail_list_presenterShowLoadingIndicatorTitle(preferredLanguages: [String]? = nil) -> String {
+      static func cocktail_list_presenterShowLoadingIndicatorTitle(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("flows.cocktail_list_module.cocktail_list_presenter.showLoadingIndicator.title", bundle: hostingBundle, comment: "")
+          return NSLocalizedString("cocktail_list_presenter.showLoadingIndicator.title", bundle: hostingBundle, comment: "")
         }
 
         guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
-          return "flows.cocktail_list_module.cocktail_list_presenter.showLoadingIndicator.title"
+          return "cocktail_list_presenter.showLoadingIndicator.title"
         }
 
-        return NSLocalizedString("flows.cocktail_list_module.cocktail_list_presenter.showLoadingIndicator.title", bundle: bundle, comment: "")
+        return NSLocalizedString("cocktail_list_presenter.showLoadingIndicator.title", bundle: bundle, comment: "")
       }
 
       fileprivate init() {}

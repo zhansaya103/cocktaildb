@@ -28,8 +28,7 @@ final class CocktailListInteractor: CocktailListInteractorBase, CocktailListInte
         self.networkManager = networkManager
         self.presentableFilter = presentableFilter
         
-        let _loadedCocktailRepositories = PublishSubject<CocktailRepository>()
-        self.loadedCocktailRepositories = _loadedCocktailRepositories
+        self.loadedCocktailRepositories = PublishSubject<CocktailRepository>()
         cocktailRepositories = loadedCocktailRepositories.asObservable()
         
         let fetchedCategories = networkManager.getCategoryList()
@@ -43,8 +42,7 @@ final class CocktailListInteractor: CocktailListInteractorBase, CocktailListInte
                 fetchedCocktails
                     .subscribe(onNext: { [weak self] value in
                         let cocktail = CocktailRepository(category: firstCategory, cocktails: value)
-                        _loadedCocktailRepositories.onNext(cocktail)
-                        self?.loadedCocktailRepositories = _loadedCocktailRepositories
+                        self?.loadedCocktailRepositories.onNext(cocktail)
                         self?.cocktailRepositories = (self?.loadedCocktailRepositories.asObservable())!
                     })
                     .disposed(by: (self?.disposeBag)!)
@@ -52,7 +50,6 @@ final class CocktailListInteractor: CocktailListInteractorBase, CocktailListInte
             .disposed(by: disposeBag)
         self.presentableFilter = presentableFilter
         
-        self.loadedCocktailRepositories = _loadedCocktailRepositories
         cocktailRepositories = loadedCocktailRepositories.asObservable()
     }
     

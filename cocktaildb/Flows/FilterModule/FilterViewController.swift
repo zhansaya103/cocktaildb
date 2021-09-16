@@ -7,6 +7,7 @@
 
 import UIKit
 import RxSwift
+import Rswift
 
 class FilterViewController: UIViewController, FilterViewControllerInput {
     weak var presenter: FilterPresenterBase?
@@ -18,7 +19,7 @@ class FilterViewController: UIViewController, FilterViewControllerInput {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .white
+        view.backgroundColor = R.color.cellBackground()
         
         tableView = UITableView()
         tableView.allowsMultipleSelection = true
@@ -91,7 +92,7 @@ extension FilterViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let cell = tableView.cellForRow(at: indexPath) else { return  }
-        cell.backgroundColor = .white
+        cell.backgroundColor = R.color.cellBackground()
         
         presenter?.input.rowDidSelect(indexPath.row)
     }
@@ -115,9 +116,10 @@ extension FilterViewController: UITableViewDelegate, UITableViewDataSource {
         if let cell = tableView.dequeueReusableCell(withIdentifier: FilterCell.identifier, for: indexPath) as? FilterCell {
             if let filter = presenter?.output.filterRepository {
                 cell.nameLabel.text = filter.categories[indexPath.row].name
-                if let isSelected = filter.categories[indexPath.row].isSelected {
-                    cell.accessoryType = isSelected ? .checkmark : .none
-                }
+                cell.accessoryType = filter.categories[indexPath.row].isSelected == true
+                    ? .checkmark
+                    : .none
+                
             }
             return cell
         }

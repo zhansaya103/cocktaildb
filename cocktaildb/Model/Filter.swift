@@ -15,7 +15,7 @@ final class FilterRepository {
 
 final class FilteredCategoryRepository {
     var filteredCategories = PublishSubject<[Category]>()
-    func filter(c: [Category]) {
-        filteredCategories.onNext(c)
+    func filter(categoryList: [Category]) {
+        filteredCategories.onNext(categoryList)
     }
 }

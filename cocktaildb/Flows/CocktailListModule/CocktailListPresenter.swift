@@ -60,7 +60,7 @@ final class CocktailListPresenter: CocktailListPresenterBase, CocktailListPresen
     var presentableFilter: FilterRepository?
     
     func viewReadyToUse() {
-        view?.showLoadingIndicator(title: NSLocalizedString("flows.cocktail_list_module.cocktail_list_presenter.showLoadingIndicator.title", comment: ""), description: "")
+        view?.showLoadingIndicator(title: R.string.localizable.cocktail_list_presenterShowLoadingIndicatorTitle(), description: "")
     }
     
     func hideLoaderTrigger() {

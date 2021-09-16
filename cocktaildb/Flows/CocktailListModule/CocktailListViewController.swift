@@ -60,12 +60,8 @@ class CocktailListViewController: UIViewController, CocktailListViewControllerIn
 
 extension CocktailListViewController {
     private func setRightBarButtonItem(image: UIImage) {
-        if #available(iOS 12.0, *) {
-            let filterButton = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(showFilter))
-            navigationItem.rightBarButtonItem = filterButton
-        } else {
-            // Fallback on earlier versions
-        }
+        let filterButton = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(showFilter))
+        navigationItem.rightBarButtonItem = filterButton
     }
     
     @objc private func showFilter() {
@@ -91,7 +87,6 @@ extension CocktailListViewController: UITableViewDelegate, UITableViewDataSource
 // MARK: - UITableViewDelegate methods
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
         let headerView = SectionHeaderView(frame: .zero)
         headerView.sectionLabel.text = try! presenter!.output.cocktailRepositories.value()[section].category.name
         

@@ -31,7 +31,7 @@ final class FilterPresenter: FilterPresenterBase, FilterPresenterInput, FilterPr
     
     func filterButtonTapped() {
         selectedCategories = filterRepository.categories.filter({ $0.isSelected == true })
-        filteredCategoryRepository.filter(c: selectedCategories)
+        filteredCategoryRepository.filter(categoryList: selectedCategories)
         saveFilterState()
         checkFilterState()
     }

@@ -22,7 +22,7 @@ class CocktailListCell: UITableViewCell {
     
     var nameLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .black
+        label.textColor = R.color.cellText()
         label.textAlignment = .left
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
