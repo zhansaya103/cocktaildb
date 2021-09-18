@@ -20,6 +20,7 @@ class CocktailListViewController: UIViewController, CocktailListViewControllerIn
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title = R.string.localizable.cocktail_list_viewcontroller_title()
         tableView = UITableView(frame: .zero)
         tableView.showsVerticalScrollIndicator = false
         view.addSubview(tableView)

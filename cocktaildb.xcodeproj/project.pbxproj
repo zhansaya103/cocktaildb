@@ -271,8 +271,8 @@
 		58D7DCD226F1CE7100A20444 /* CocktailListModule */ = {
 			isa = PBXGroup;
 			children = (
-				58D7DCE626F2806200A20444 /* View */,
 				58D7DCD426F1CE8D00A20444 /* Protocols */,
+				58D7DCE626F2806200A20444 /* View */,
 				58D7DC9726F1C6D400A20444 /* CocktailListViewController.swift */,
 				58D7DCDF26F1D7BF00A20444 /* CocktailListInteractor.swift */,
 				58D7DCE226F25EAB00A20444 /* CocktailListPresenter.swift */,

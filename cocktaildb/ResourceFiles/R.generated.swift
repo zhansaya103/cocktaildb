@@ -295,12 +295,20 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    /// This `R.string.localizable` struct is generated, and contains static references to 2 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 4 localization keys.
     struct localizable {
       /// en translation: Apply Filter
       ///
       /// Locales: en, ru
-      static let flowCocktail_list_moduleViewFilter_buttonTitle = Rswift.StringResource(key: "flow.cocktail_list_module.view.filter_button.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ru"], comment: nil)
+      static let cocktail_list_moduleViewFilter_buttonTitle = Rswift.StringResource(key: "cocktail_list_module.view.filter_button.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ru"], comment: nil)
+      /// en translation: Drinks
+      ///
+      /// Locales: en, ru
+      static let cocktail_list_viewcontroller_title = Rswift.StringResource(key: "cocktail_list_viewcontroller_title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ru"], comment: nil)
+      /// en translation: Filters
+      ///
+      /// Locales: en, ru
+      static let filter_viewcontroller_title = Rswift.StringResource(key: "filter_viewcontroller_title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ru"], comment: nil)
       /// en translation: Loading
       ///
       /// Locales: en, ru
@@ -309,16 +317,46 @@ struct R: Rswift.Validatable {
       /// en translation: Apply Filter
       ///
       /// Locales: en, ru
-      static func flowCocktail_list_moduleViewFilter_buttonTitle(preferredLanguages: [String]? = nil) -> String {
+      static func cocktail_list_moduleViewFilter_buttonTitle(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("flow.cocktail_list_module.view.filter_button.title", bundle: hostingBundle, comment: "")
+          return NSLocalizedString("cocktail_list_module.view.filter_button.title", bundle: hostingBundle, comment: "")
         }
 
         guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
-          return "flow.cocktail_list_module.view.filter_button.title"
+          return "cocktail_list_module.view.filter_button.title"
         }
 
-        return NSLocalizedString("flow.cocktail_list_module.view.filter_button.title", bundle: bundle, comment: "")
+        return NSLocalizedString("cocktail_list_module.view.filter_button.title", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Drinks
+      ///
+      /// Locales: en, ru
+      static func cocktail_list_viewcontroller_title(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("cocktail_list_viewcontroller_title", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "cocktail_list_viewcontroller_title"
+        }
+
+        return NSLocalizedString("cocktail_list_viewcontroller_title", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Filters
+      ///
+      /// Locales: en, ru
+      static func filter_viewcontroller_title(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("filter_viewcontroller_title", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "filter_viewcontroller_title"
+        }
+
+        return NSLocalizedString("filter_viewcontroller_title", bundle: bundle, comment: "")
       }
 
       /// en translation: Loading

@@ -7,4 +7,6 @@
 */
 
 "cocktail_list_presenter.showLoadingIndicator.title" = "Загрузка";
-"flow.cocktail_list_module.view.filter_button.title" = "Применить фильтр";
+"cocktail_list_module.view.filter_button.title" = "Применить фильтр";
+"cocktail_list_viewcontroller_title" = "Напитки";
+"filter_viewcontroller_title" = "Фильтры";

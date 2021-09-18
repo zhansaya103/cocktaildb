@@ -19,6 +19,7 @@ class FilterViewController: UIViewController, FilterViewControllerInput {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title = R.string.localizable.filter_viewcontroller_title()
         view.backgroundColor = R.color.cellBackground()
         
         tableView = UITableView()
